@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h3.ui.center.aligned.icon.header
+    i.circular.search.icon
+    |Результаты поиска:
+  #result
+    if (user.json_out.data != null)
+      each i in user.json_out.data
+        p
+          if (i.count != 0)
+            a(href='/subgroups/'+ i.id)  #{i.mkb_code}
+            span(style='margin-left:5px')
+              !{i.mkb_name}
+          else
+            a #{i.mkb_code}
+            span(style='margin-left:5px')
+              !{i.mkb_name}
+    else
+      h3.ui.block.header.center.aligned
+        |К сожалению по вашему запросу ничего не обнаружено
+  //script.
+  //  $(document).ready(function () {
+  //    var str = $('#result');
+  //      console.log(str)
+  //    $.each(str[0].children, function (key, item) {
+  //        item.innerHTML.replace('Z00', '<span style="background-color: yellow;">Z00<span>')
+  //    })
+  //  })

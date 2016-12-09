@@ -1,0 +1,76 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/semantic.min.css')
+    link(href='/stylesheets/icon.css' rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+    script(type="text/javascript" src="//vk.com/js/api/openapi.js?136")
+    script(type="text/javascript" src="https://vk.com/js/api/share.js?94")
+    script(src="https://apis.google.com/js/platform.js" async defer).
+        {lang: 'ru'}
+  body
+    #fb-root
+    .ui.menu
+      a.item(href='/')
+        i.home.icon(style='font-size:24px;')
+      .item(style='width:34%')
+        .ui.icon.input
+          input#search
+          i.search.icon
+      .item
+        #vk_like
+      .item
+          script.
+              document.write(VK.Share.button(false,{type: "link", text: "Поделиться"}))
+      .item
+        #ok_shareWidget
+      .item
+          .g-plusone(data-size="medium" data-href="http://mkb11.info/")
+      .item
+          .fb-like(data-href="http://mkb11.info/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true")
+    .ui.container
+      block content
+
+
+  script(src='/javascripts/semantic.min.js')
+  script.
+    VK.init({apiId: 5767032, onlyWidgets: true});
+  script.
+         (function (d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+  script.
+      !function (d, id, did, st, title, description, image) {
+          var js = d.createElement("script");
+          js.src = "https://connect.ok.ru/connect.js";
+          js.onload = js.onreadystatechange = function () {
+              if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+                  if (!this.executed) {
+                      this.executed = true;
+                      setTimeout(function () {
+                          OK.CONNECT.insertShareWidget(id, did, st, title, description, image);
+                      }, 0);
+                  }
+              }
+          };
+          d.documentElement.appendChild(js);
+      }(document, "ok_shareWidget", "http://mkb11.info/", '{"sz":20,"st":"oval","nt":1}', "Справочник МКБ-10", "Справочник МКБ-10", "");
+  script.
+      $(document).ready(function () {
+          $('.ui.menu').state();
+          $('.ui.dropdown').dropdown();
+          $('#search').keyup(function (event) {
+              console.log(event.keyCode)
+              if (event.keyCode == 13) {
+                  location.href = '/search/' + $(this).val()
+              }
+          })
+      })
+

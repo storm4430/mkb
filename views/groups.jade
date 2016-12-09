@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div(style='margin-bottom:20px')
+    a(style='font-size:20px') #{user.json_out.title[0].mkb_code}  #{user.json_out.title[0].mkb_name}
+  each i in user.json_out.data
+    p
+      a(href='/subgroups/'+ i.id)  !{i.mkb_code}
+      span(style='margin-left:5px')
+        !{i.mkb_name}
+  script.
+      VK.init({apiId: 5767032, onlyWidgets: true});
+      VK.Widgets.Like("vk_like", {
+          type: "mini",
+          verb: 1,
+          pageTitle: "#{title}",
+          pageImage: "http://mkb11.info/images/soc_logo.jpg"
+      }, #{appId});

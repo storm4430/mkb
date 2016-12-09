@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div(style='margin-bottom:20px')
+    -var index = 0
+    each v in user.json_out.title
+      if( index != 0)
+        p(style='margin-bottom:7px;')
+          a(href='/subgroups/#{v.id}' style='font-size:20px; margin-left:#{index++ *20}px;')
+           i.icon.level.down
+           #{v.mkb_code}  #{v.mkb_name}
+      else
+        p(style='margin-bottom:7px;')
+          a(href='/groups/#{v.id}' style='font-size:20px; margin-left:#{index++ *20}px;') #{v.mkb_code}    #{v.mkb_name}
+  each i in user.json_out.data
+    p(style='margin-left:#{(index)*20}px')
+      if (i.count != 0)
+        a(href='/subgroups/#{i.id}') !{i.mkb_code}
+        span(style='margin-left:5px')
+          !{i.mkb_name}
+      else
+        a !{i.mkb_code}
+        span(style='margin-left:5px')
+          !{i.mkb_name}
+  script.
+      VK.init({apiId: 5767032, onlyWidgets: true});
+      VK.Widgets.Like("vk_like", {
+          type: "mini",
+          verb: 1,
+          pageTitle: "#{title}",
+          pageImage: "http://mkb11.info/images/soc_logo.jpg"
+      }, #{appId});

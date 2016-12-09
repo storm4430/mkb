@@ -1,0 +1,56 @@
+{
+  "title":
+  [
+    {
+      "id":1,
+      "id_parent":0,
+      "mkb_name":"некоторые инфекционные и паразитарные болезни ",
+      "mkb_code":"(a00-b99)"
+    },
+    {
+      "id":2,
+      "id_parent":1,
+      "mkb_name":"кишечные инфекции ",
+      "mkb_code":"(a00-a09)"
+    },
+    {
+      "id":3,
+      "id_parent":2,
+      "mkb_name":"холера",
+      "mkb_code":"a00"
+    }
+  ],
+  "data":
+  [
+    {
+      "id":4,
+      "mkb_code":"a00.0",
+      "rec_code":"0101a000",
+      "mkb_name":"холера, вызванная холерным вибрионом 01, биовар cholerae",
+      "mkb_name_eng":"cholera due to vibrio cholerae 01, biovar cholerae",
+      "id_parent":3,
+      "addl_code":0,
+      "count":0
+    },
+    {
+      "id":5,
+      "mkb_code":"a00.1",
+      "rec_code":"0101a001",
+      "mkb_name":"холера, вызванная холерным вибрионом 01, биовар eltor",
+      "mkb_name_eng":"cholera due to vibrio cholerae 01, biovar eltor",
+      "id_parent":3,
+      "addl_code":0,
+      "count":0
+    },
+    {
+      "id":6,
+      "mkb_code":"a00.9",
+      "rec_code":"0101a009",
+      "mkb_name":"холера неуточненная",
+      "mkb_name_eng":"cholera, unspecified",
+      "id_parent":3,
+      "addl_code":0,
+      "count":0
+    }
+  ]
+}
