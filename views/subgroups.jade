@@ -8,10 +8,11 @@ block content
         p(style='margin-bottom:7px;')
           a(href='/subgroups/#{v.id}' style='font-size:20px; margin-left:#{index++ *20}px;')
            i.icon.level.down
-           #{v.mkb_code}  #{v.mkb_name}
+           !{v.mkb_code},  !{v.mkb_name}
       else
         p(style='margin-bottom:7px;')
-          a(href='/groups/#{v.id}' style='font-size:20px; margin-left:#{index++ *20}px;') #{v.mkb_code}    #{v.mkb_name}
+          a(href='/groups/#{v.id}' style='font-size:20px; margin-left:#{index++ *20}px;')
+            !{v.mkb_code},  !{v.mkb_name}
   each i in user.json_out.data
     p(style='margin-left:#{(index)*20}px')
       if (i.count != 0)
